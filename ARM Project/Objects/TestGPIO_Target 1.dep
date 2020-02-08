@@ -1,0 +1,46 @@
+Dependencies for Project 'TestGPIO', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_rvmdk.S)(0x5C9BDC78)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123--pd "__UVISION_VERSION SETA 526"--list .\listings\startup_rvmdk.lst --xref -o .\objects\startup_rvmdk.o --depend .\objects\startup_rvmdk.d)
+F (.\main.c)(0x5E3E9292)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="526" -DTM4C123GH6PM-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Keil_v5\ARM\INC\TI\TM4C123\TM4C123GH6PM.h)(0x559D3620)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\INC\TI\TM4C123\system_TM4C123.h)(0x559D3620)
+I (Kit_Connections.h)(0x5E3DB75E)
+I (Port.h)(0x5E3DB6DA)
+I (GPIO_Types.h)(0x5E3DB6DA)
+I (STD_Types.h)(0x5E3DB6DA)
+I (Bit_Math.h)(0x5E3DB6DA)
+I (Gpio.h)(0x5E3E8F04)
+F (.\Gpio.h)(0x5E3E8F04)()
+F (.\Gpio_Types.h)(0x5E3DB6DA)()
+F (.\STD_Types.h)(0x5E3DB6DA)()
+F (.\Port.h)(0x5E3DB6DA)()
+F (.\Port_Lcfg.c)(0x5E3E9BF3)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="526" -DTM4C123GH6PM-o .\objects\port_lcfg.o --omf_browse .\objects\port_lcfg.crf --depend .\objects\port_lcfg.d)
+I (Port.h)(0x5E3DB6DA)
+I (GPIO_Types.h)(0x5E3DB6DA)
+I (STD_Types.h)(0x5E3DB6DA)
+I (C:\Keil_v5\ARM\INC\TI\TM4C123\TM4C123GH6PM.h)(0x559D3620)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\INC\TI\TM4C123\system_TM4C123.h)(0x559D3620)
+I (Bit_Math.h)(0x5E3DB6DA)
+F (.\Bit_Math.h)(0x5E3DB6DA)()
+F (.\Gpio.c)(0x5E3E90ED)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="526" -DTM4C123GH6PM-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
+I (Gpio.h)(0x5E3E8F04)
+I (STD_Types.h)(0x5E3DB6DA)
+I (GPIO_Types.h)(0x5E3DB6DA)
+I (C:\Keil_v5\ARM\INC\TI\TM4C123\TM4C123GH6PM.h)(0x559D3620)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F2F9E)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559D3FFA)
+I (C:\Keil_v5\ARM\INC\TI\TM4C123\system_TM4C123.h)(0x559D3620)
+I (Bit_Math.h)(0x5E3DB6DA)
+F (.\Kit_Connections.h)(0x5E3DB75E)()
