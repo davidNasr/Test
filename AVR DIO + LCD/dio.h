@@ -10,11 +10,9 @@
 #ifndef DIO_H_
 #define DIO_H_
 
-//Includes
 #include "STD_Types.h"
 #include "dio_types.h"
 
-//Functions Prototypes
 void Dio_WriteChannel(Dio_ChannelType channel, STD_levelType level);
 void Dio_WritePort(Dio_PortType port, uint8 value);
 Dio_LevelType Dio_ReadChannel(Dio_ChannelType ChannelId);

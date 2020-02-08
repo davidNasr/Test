@@ -12,7 +12,7 @@
 #include "dio_types.h"
 #include "STD_Types.h"
 #include "bit_math.h"
-#include "Port_Lcfg.c"
+
 
 
 void Dio_WriteChannel(Dio_ChannelType channel, STD_levelType level)
