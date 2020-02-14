@@ -50,15 +50,15 @@ const Port_ConfigType ConfigPtr[] = {
 /*PE4*/		{Output,STD_low},
 /*PE5*/		{Output,STD_low},
 
-/*PF0*/		{Input,STD_high},
+/*PF0*/		{Input,STD_low},
 /*PF1*/		{Output,STD_low},
 /*PF2*/		{Output,STD_low},
 /*PF3*/		{Output,STD_low},
-/*PF4*/		{Input,STD_high}
+/*PF4*/		{Input,STD_low}
 };
 
 
-void Port_Init(uint8 port)
+void Port_Init(GPIO_PortType port)
 {
 	uint8 pinCounter = 0;
 	uint8 portCount = 0;
@@ -66,81 +66,89 @@ void Port_Init(uint8 port)
 	uint8 currentPin = 0;
 	
 	volatile unsigned long delay;
-	//SYSCTL -> RCGC2 |= (uint32)(port & 0x0F);  //32-bit register (4 bytes) //every port has 1 bit in first (LSB) byte (00FE DCBA) //enable clock
-	delay = SYSCTL -> RCGC2;    	 						//dummy cycle to wait for initialization
-	
+
+	GPIOA_Type* GPIO;
 	switch(port)
 	{
-		case 'A' :
-			#undef GPIO_PORT
-			#define GPIO_PORT GPIOA
-			SYSCTL -> RCGC2 |= 0x01;
+		case GPIO_Port_A :
+			GPIO = GPIOA;
+			SYSCTL -> RCGC2 |= 0x01;   					//32-bit register (4 bytes) //every port has 1 bit in first (LSB) byte (00FE DCBA) //enable clock
+			delay = SYSCTL -> RCGC2;    	 			//dummy cycle to wait for initialization
 			portCount = 8;
 			offset = 0;
 			break;
 		
-		case 'B' :
-			#undef GPIO_PORT
-			#define GPIO_PORT GPIOB
+		case GPIO_Port_B :
+			GPIO = GPIOB;
 			SYSCTL -> RCGC2 |= 0x02;
+			delay = SYSCTL -> RCGC2;    	 						//dummy cycle to wait for initialization
 			portCount = 8;
 			offset = 8;
 			break;
 		
-		case 'C' :
-			#undef GPIO_PORT
-			#define GPIO_PORT GPIOC
+		case GPIO_Port_C :
+			GPIO = GPIOC;
 			SYSCTL -> RCGC2 |= 0x04;
+			delay = SYSCTL -> RCGC2;    	 						//dummy cycle to wait for initialization
 			portCount = 8;
 			offset = 16;
 			break;
 		
-		case 'D' :
-			#undef GPIO_PORT
-			#define GPIO_PORT GPIOD
+		case GPIO_Port_D :
+			GPIO = GPIOD;
 			SYSCTL -> RCGC2 |= 0x08;
+			delay = SYSCTL -> RCGC2;    	 						//dummy cycle to wait for initialization
 			portCount = 8;
 			offset = 24;
 			break;
 		
-		case 'E' :
-			#undef GPIO_PORT
-			#define GPIO_PORT GPIOE
+		case GPIO_Port_E :
+			GPIO = GPIOE;
 			SYSCTL -> RCGC2 |= 0x10;
+			delay = SYSCTL -> RCGC2;    	 						//dummy cycle to wait for initialization
 			portCount = 6;
 			offset = 32;
 			break;
 		
 		default :
-			#undef GPIO_PORT
-			#define GPIO_PORT GPIOF
+			GPIO = GPIOF;
 			SYSCTL -> RCGC2 |= 0x20;
+			delay = SYSCTL -> RCGC2;    	 						//dummy cycle to wait for initialization
 			portCount = 5;
 			offset = 38;
 			break;
 	}
 	
-	GPIO_PORT -> LOCK = 0x4C4F434B;					//unlock GPIO Port (for C, B and F?)
-	GPIO_PORT -> CR = 0xFF;									//allow changes to whole port
-	GPIO_PORT -> AMSEL = 0x00;							//disable analog on Port
-	GPIO_PORT -> PCTL = 0x00;								//0 for GPIO functionality
+	 GPIO -> LOCK = 0x4C4F434B;							  //unlock GPIO Port 
+	 GPIO -> CR = 0xFF;												//allow changes to whole port
+	 GPIO -> AMSEL = 0x00;										//disable analog on Port
+	 GPIO -> AFSEL = 0x00;										//disable alt funct
+ 	 GPIO -> PCTL = 0x00;											//0 for GPIO functionality
 	
 	
 	for (currentPin=offset; currentPin < (portCount+offset); currentPin++)	//set pin directions according to configuration
 	{
 		if (ConfigPtr[currentPin].pinDirection == Output)
 		{
-			SET_BIT(GPIO_PORT -> DIR,pinCounter);
+			SET_BIT(GPIO -> DIR,pinCounter);
 			pinCounter++;
 		}else
 			{
-				CLR_BIT(GPIO_PORT -> DIR,pinCounter);
+				CLR_BIT(GPIO -> DIR,pinCounter);
 				pinCounter++;
 			}
 	
 	}
-	GPIOF -> AFSEL = 0x00;									//disable alt funct
-	GPIO_PORT -> PUR = 0x11;
-	GPIO_PORT -> DEN = 0xFF;								//enable digital I/O to whole port
+
+	if(port == GPIO_Port_F)
+	{
+		GPIO -> PUR = 0x11;
+	}else
+		{
+			GPIO -> PUR = 0x00;
+		}
+		
+	GPIO -> DEN = 0xFF;										//enable digital I/O to whole port
 }
+
 

@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -46,7 +47,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>GPIO_Generic</OutputName>
+          <OutputName>TestGPIO</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -124,7 +125,7 @@
             <Oh166RecLen>16</Oh166RecLen>
           </OPTHX>
           <Simulator>
-            <UseSimulator>1</UseSimulator>
+            <UseSimulator>0</UseSimulator>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -136,7 +137,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Simulator>
           <Target>
-            <UseTarget>0</UseTarget>
+            <UseTarget>1</UseTarget>
             <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
             <RunToMain>1</RunToMain>
             <RestoreBreakpoints>1</RestoreBreakpoints>
@@ -148,7 +149,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>0</TargetSelection>
+          <TargetSelection>9</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -162,7 +163,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\UL2CM3.DLL</Driver>
+            <Driver>BIN\lmidk-agdi.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -172,11 +173,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -296,17 +297,17 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
@@ -316,7 +317,7 @@
                 <Size>0x40000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -421,9 +422,79 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>startup_TM4C123.s</FileName>
+              <FileName>startup_rvmdk.S</FileName>
               <FileType>2</FileType>
-              <FilePath>.\startup_TM4C123.s</FilePath>
+              <FilePath>.\startup_rvmdk.S</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>Gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>Gpio_Types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Gpio_Types.h</FilePath>
+            </File>
+            <File>
+              <FileName>STD_Types.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\STD_Types.h</FilePath>
+            </File>
+            <File>
+              <FileName>Port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Port.h</FilePath>
+            </File>
+            <File>
+              <FileName>Port_Lcfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Port_Lcfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>Bit_Math.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Bit_Math.h</FilePath>
+            </File>
+            <File>
+              <FileName>Gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>Kit_Connections.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Kit_Connections.h</FilePath>
+            </File>
+            <File>
+              <FileName>Lcd.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Lcd.h</FilePath>
+            </File>
+            <File>
+              <FileName>Lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>Lcd_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Lcd_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>Utils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Utils.h</FilePath>
+            </File>
+            <File>
+              <FileName>Utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Utils.c</FilePath>
             </File>
           </Files>
         </Group>

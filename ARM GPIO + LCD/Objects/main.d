@@ -12,3 +12,7 @@
 .\objects\main.o: STD_Types.h
 .\objects\main.o: Bit_Math.h
 .\objects\main.o: Gpio.h
+.\objects\main.o: Kit_Connections.h
+.\objects\main.o: Lcd.h
+.\objects\main.o: Lcd_cfg.h
+.\objects\main.o: Utils.h

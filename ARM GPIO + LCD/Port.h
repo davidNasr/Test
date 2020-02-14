@@ -6,7 +6,7 @@
 
 #include "GPIO_Types.h"
 
-void Port_Init (uint8 port);
+void Port_Init (GPIO_PortType port);
 
 typedef struct
 {
@@ -19,6 +19,5 @@ extern const Port_ConfigType ConfigPtr[];
 
 
 
-
-
 #endif
+
